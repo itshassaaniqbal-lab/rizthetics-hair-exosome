@@ -3,6 +3,8 @@
 import { FormEvent, useEffect, useState } from "react";
 
 const PHONE = "923008111232";
+const ASSET_BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const asset = (path: string) => `${ASSET_BASE}${path}`;
 
 const treatmentSteps = [
   { n: "01", title: "Map", text: "A specialist maps your density, scalp condition, and hair-loss pattern." },
@@ -12,7 +14,7 @@ const treatmentSteps = [
 ];
 
 const faqs = [
-  ["Is the treatment painful?", "Most clients describe only mild pressure or tingling. A topical numbing solution is used to keep the 45–60 minute session comfortable."],
+  ["Is the treatment painful?", "Most clients describe only mild pressure or tingling. A topical numbing solution is used to keep the 45â€“60 minute session comfortable."],
   ["How many sessions will I need?", "Your plan depends on your scalp health and pattern of hair loss. Many clients are advised a short course, followed by maintenance only when needed."],
   ["When can I expect to see a change?", "Hair cycles take time. Early changes may appear over several weeks, with density and strength continuing to improve over the following months."],
   ["Is there any downtime?", "Downtime is minimal. Mild redness or sensitivity can occur for a short period, and your specialist will give you simple aftercare instructions."],
@@ -67,7 +69,7 @@ export default function Home() {
           <a href="#reviews" onClick={() => setMenuOpen(false)}>Stories</a>
           <a href="tel:03008111232" onClick={() => setMenuOpen(false)}>0300-8111232</a>
         </nav>
-        <a className="nav-cta" href="#booking">Book consultation <span>↗</span></a>
+        <a className="nav-cta" href="#booking">Book consultation <span>â†—</span></a>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu" aria-expanded={menuOpen}>MENU</button>
       </header>
 
@@ -77,8 +79,8 @@ export default function Home() {
           <h1>Wake up<br />what&apos;s <em>within.</em></h1>
           <p className="hero-lede">A non-surgical, science-led treatment designed to support dormant follicles and restore the look of stronger, denser hair.</p>
           <div className="hero-actions">
-            <a className="button primary" href="#booking">Claim 20% off <span>↗</span></a>
-            <a className="text-link" href="#science">Explore the science <span>↓</span></a>
+            <a className="button primary" href="#booking">Claim 20% off <span>â†—</span></a>
+            <a className="text-link" href="#science">Explore the science <span>â†“</span></a>
           </div>
           <div className="trust-row">
             <div className="faces" aria-hidden="true"><b>AR</b><b>AM</b><b>SA</b></div>
@@ -88,7 +90,7 @@ export default function Home() {
 
         <div className="hero-visual">
           <div className="photo-frame">
-            <img src="/images/hair-portrait.jpg" alt="Portrait highlighting healthy, glossy hair" />
+            <img src={asset("/images/hair-portrait.jpg")} alt="Portrait highlighting healthy, glossy hair" />
             <div className="scan-line" />
             <span className="photo-index">RX / 01</span>
           </div>
@@ -97,12 +99,12 @@ export default function Home() {
             <div className="molecule"><i /><i /><i /><i /><i /></div>
             <p><span>EXOSOME SIGNALS</span>Precision at a cellular scale</p>
           </div>
-          <div className="hero-note"><span>01</span><p>No surgery<br />Minimal downtime<br />45–60 minutes</p></div>
+          <div className="hero-note"><span>01</span><p>No surgery<br />Minimal downtime<br />45â€“60 minutes</p></div>
         </div>
       </section>
 
       <section className="marquee" aria-label="Treatment benefits">
-        <div>REACTIVATE <span>✦</span> REINFORCE <span>✦</span> RENEW <span>✦</span> REACTIVATE <span>✦</span> REINFORCE <span>✦</span> RENEW</div>
+        <div>REACTIVATE <span>âœ¦</span> REINFORCE <span>âœ¦</span> RENEW <span>âœ¦</span> REACTIVATE <span>âœ¦</span> REINFORCE <span>âœ¦</span> RENEW</div>
       </section>
 
       <section className="science section" id="science">
@@ -136,17 +138,17 @@ export default function Home() {
         <div className="section-label light"><span>02</span> Your session</div>
         <div className="process-intro">
           <h2>Four movements.<br /><em>One considered plan.</em></h2>
-          <p>Every session is mapped around your scalp, your pattern, and your goals—not a one-size-fits-all protocol.</p>
+          <p>Every session is mapped around your scalp, your pattern, and your goalsâ€”not a one-size-fits-all protocol.</p>
         </div>
         <div className="process-layout">
           <div className="process-photo">
-            <img src="/images/clinic-detail.jpg" alt="A specialist carrying out a precise cosmetic treatment" />
+            <img src={asset("/images/clinic-detail.jpg")} alt="A specialist carrying out a precise cosmetic treatment" />
             <div className="image-caption"><span>Precision-led care</span><span>Lahore, PK</span></div>
           </div>
           <div className="steps">
             {treatmentSteps.map((step) => (
               <article key={step.n}>
-                <span>{step.n}</span><h3>{step.title}</h3><p>{step.text}</p><i>↗</i>
+                <span>{step.n}</span><h3>{step.title}</h3><p>{step.text}</p><i>â†—</i>
               </article>
             ))}
           </div>
@@ -158,8 +160,8 @@ export default function Home() {
         <div className="candidate-grid">
           <div className="candidate-copy">
             <h2>Is your scalp<br /><em>asking for more?</em></h2>
-            <p>Exosome therapy is designed for men and women experiencing early-to-moderate changes—not complete or long-standing baldness.</p>
-            <a className="button dark" href="#booking">Check my suitability <span>↗</span></a>
+            <p>Exosome therapy is designed for men and women experiencing early-to-moderate changesâ€”not complete or long-standing baldness.</p>
+            <a className="button dark" href="#booking">Check my suitability <span>â†—</span></a>
           </div>
           <div className="concern-list">
             {["Increased shedding", "Thinning density", "Receding hairline", "Weak, brittle strands", "Post-pregnancy shedding", "Dry, unhealthy scalp"].map((item, i) => (
@@ -170,7 +172,7 @@ export default function Home() {
       </section>
 
       <section className="outcomes">
-        <div className="outcome-photo"><img src="/images/hair-closeup.jpg" alt="Close-up of healthy flowing hair" /></div>
+        <div className="outcome-photo"><img src={asset("/images/hair-closeup.jpg")} alt="Close-up of healthy flowing hair" /></div>
         <div className="outcome-copy">
           <p className="eyebrow"><span /> Results, naturally</p>
           <h2>Stronger.<br />Fuller.<br /><em>Still you.</em></h2>
@@ -184,12 +186,12 @@ export default function Home() {
         <div className="section-label"><span>04</span> Client notes</div>
         <div className="reviews-head">
           <h2>Good hair days,<br /><em>in their own words.</em></h2>
-          <div className="rating"><strong>4.9</strong><span>★★★★★<small>Google rating</small></span></div>
+          <div className="rating"><strong>4.9</strong><span>â˜…â˜…â˜…â˜…â˜…<small>Google rating</small></span></div>
         </div>
         <div className="review-grid">
-          <article className="featured-review"><span>“</span><blockquote>My crown looks noticeably denser and the whole experience felt considered from start to finish.</blockquote><footer><b>Abdulrehman M.</b><small>Verified Google review</small></footer></article>
-          <article><span>“</span><blockquote>My postpartum shedding finally slowed down. The team explained every step and never rushed me.</blockquote><footer><b>Ayesha R.</b><small>Verified Google review</small></footer></article>
-          <article><span>“</span><blockquote>Non-surgical, clean, and surprisingly comfortable. I feel much more confident about my hairline.</blockquote><footer><b>Xenia M.</b><small>Verified Google review</small></footer></article>
+          <article className="featured-review"><span>â€œ</span><blockquote>My crown looks noticeably denser and the whole experience felt considered from start to finish.</blockquote><footer><b>Abdulrehman M.</b><small>Verified Google review</small></footer></article>
+          <article><span>â€œ</span><blockquote>My postpartum shedding finally slowed down. The team explained every step and never rushed me.</blockquote><footer><b>Ayesha R.</b><small>Verified Google review</small></footer></article>
+          <article><span>â€œ</span><blockquote>Non-surgical, clean, and surprisingly comfortable. I feel much more confident about my hairline.</blockquote><footer><b>Xenia M.</b><small>Verified Google review</small></footer></article>
         </div>
       </section>
 
@@ -199,14 +201,14 @@ export default function Home() {
             <p className="eyebrow"><span /> Inside the clinic</p>
             <h2>Seen on <em>Instagram.</em></h2>
           </div>
-          <a href="https://www.instagram.com/rizthetics/" target="_blank" rel="noreferrer">Follow @rizthetics <span>↗</span></a>
+          <a href="https://www.instagram.com/rizthetics/" target="_blank" rel="noreferrer">Follow @rizthetics <span>â†—</span></a>
         </div>
         <div className="reel-track">
           {[
-            ["/images/clinic-detail.jpg", "Precision scalp care"],
-            ["/images/hair-portrait.jpg", "Real hair conversations"],
-            ["/images/hair-editorial.jpg", "Inside Rizthetics"],
-            ["/images/client-care.jpg", "Meet the specialists"],
+            [asset("/images/clinic-detail.jpg"), "Precision scalp care"],
+            [asset("/images/hair-portrait.jpg"), "Real hair conversations"],
+            [asset("/images/hair-editorial.jpg"), "Inside Rizthetics"],
+            [asset("/images/client-care.jpg"), "Meet the specialists"],
           ].map(([image, label], index) => (
             <a className="reel-card" href="https://www.instagram.com/rizthetics/" target="_blank" rel="noreferrer" key={image} aria-label={`Watch ${label} on Instagram`}>
               <div className="reel-profile">
@@ -216,7 +218,7 @@ export default function Home() {
               </div>
               <div className="reel-media">
                 <img src={image} alt="" />
-                <span className="play-button">▶</span>
+                <span className="play-button">â–¶</span>
                 <p>{label}</p>
                 <small>0{index + 1} / REEL</small>
               </div>
@@ -237,7 +239,7 @@ export default function Home() {
           <div className="field"><label htmlFor="phone">WhatsApp number</label><input id="phone" name="phone" required inputMode="tel" placeholder="03XX XXXXXXX" /></div>
           <div className="field full"><label htmlFor="concern">Primary concern</label><select id="concern" name="concern" required defaultValue=""><option value="" disabled>Select one</option><option>Hair fall / shedding</option><option>Thinning density</option><option>Receding hairline</option><option>Weak or damaged hair</option><option>Post-pregnancy shedding</option><option>Other</option></select></div>
           <div className="field full"><label htmlFor="date">Preferred date</label><input id="date" name="date" type="date" /></div>
-          <button className="button booking-button" type="submit">Request my consultation <span>↗</span></button>
+          <button className="button booking-button" type="submit">Request my consultation <span>â†—</span></button>
           <p className="form-note">No payment required. We&apos;ll use your details only to confirm your appointment.</p>
         </form>
       </section>
@@ -249,7 +251,7 @@ export default function Home() {
           <div className="faq-list">
             {faqs.map(([question, answer], index) => (
               <article key={question} className={activeFaq === index ? "active" : ""}>
-                <button onClick={() => setActiveFaq(activeFaq === index ? null : index)} aria-expanded={activeFaq === index}><span>{String(index + 1).padStart(2, "0")}</span>{question}<b>{activeFaq === index ? "−" : "+"}</b></button>
+                <button onClick={() => setActiveFaq(activeFaq === index ? null : index)} aria-expanded={activeFaq === index}><span>{String(index + 1).padStart(2, "0")}</span>{question}<b>{activeFaq === index ? "âˆ’" : "+"}</b></button>
                 <div><p>{answer}</p></div>
               </article>
             ))}
@@ -258,17 +260,18 @@ export default function Home() {
       </section>
 
       <footer>
-        <div className="footer-top"><div className="footer-word">RIZTHETICS</div><a href="#top" aria-label="Back to top">↑</a></div>
+        <div className="footer-top"><div className="footer-word">RIZTHETICS</div><a href="#top" aria-label="Back to top">â†‘</a></div>
         <div className="footer-grid">
           <div><p>Advanced aesthetics.<br />Considered around you.</p></div>
           <div><span>Contact</span><a href="tel:03008111232">0300-8111232</a><a href={`https://wa.me/${PHONE}`} target="_blank" rel="noreferrer">WhatsApp</a></div>
           <div><span>Visit</span><p>Lahore, Pakistan<br />Two clinic locations</p></div>
-          <div><span>Social</span><a href="https://www.instagram.com/rizthetics/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.google.com/search?q=Rizthetics+Lahore+reviews" target="_blank" rel="noreferrer">Google reviews ↗</a></div>
+          <div><span>Social</span><a href="https://www.instagram.com/rizthetics/" target="_blank" rel="noreferrer">Instagram â†—</a><a href="https://www.google.com/search?q=Rizthetics+Lahore+reviews" target="_blank" rel="noreferrer">Google reviews â†—</a></div>
         </div>
-        <div className="footer-bottom"><span>© 2026 Rizthetics</span><span>Results vary by individual · Consultation required</span></div>
+        <div className="footer-bottom"><span>Â© 2026 Rizthetics</span><span>Results vary by individual Â· Consultation required</span></div>
       </footer>
 
-      <a className="whatsapp-float" href={`https://wa.me/${PHONE}`} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><span>Let&apos;s talk</span><b>↗</b></a>
+      <a className="whatsapp-float" href={`https://wa.me/${PHONE}`} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><span>Let&apos;s talk</span><b>â†—</b></a>
     </main>
   );
 }
+
